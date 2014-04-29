@@ -18,20 +18,6 @@ class ProductsController < ApplicationController
 
     end 
 
-    def search
-
-        @products = Product.where("name like ?", "%#{params[:search_field]}%")
-
-        puts '---------------------------------------------------'
-        puts params.inspect
-        puts '---------------------------------------------------'
-        puts @products.inspect
-        puts '---------------------------------------------------'
-
-        render partial:'shared/product', collection: @products
-
-    end 
-
     def show
 
         @product = Product.find_by(id: params[:id])

@@ -21,16 +21,8 @@
                 event.preventDefault();
                 var searchValue = $('#search_field').val();
 
-                $.ajax({
-
-                    url: 'products?search_field='+searchValue,
-                    type: 'GET',
-                    dataType: 'html'
-
-                }).done(function(data){
-
+                $.get('products?search_field='+searchValue).done(function(data){
                     $('#products_area').html(data)
-
                 })
 
             })
