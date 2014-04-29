@@ -14,7 +14,16 @@ class ProductsController < ApplicationController
 
         end 
 
-        return render partial:'shared/product', collection: @products if request.xhr?
+        if request.xhr?
+
+            respond_to do |format|
+                format.html {render partial: 'shared/product', collection: @products}
+                format.js
+            end 
+
+        end 
+
+        # return render partial:'shared/product', collection: @products if request.xhr?
 
     end 
 

@@ -21,8 +21,8 @@
                 event.preventDefault();
                 var searchValue = $('#search_field').val();
 
-                $.get('products?search_field='+searchValue).done(function(data){
-                    $('#products_area').html(data)
+                $.getScript('/products?search_field='+searchValue)
+
                 })
 
             })
