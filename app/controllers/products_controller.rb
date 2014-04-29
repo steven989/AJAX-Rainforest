@@ -4,7 +4,23 @@ class ProductsController < ApplicationController
 
     def index
 
+        if params[:search_field]
+
+        @products = Product.where("name like ?", "%#{params[:search_field]}%")
+
+        else 
+
         @products = Product.all
+
+        end 
+
+    end 
+
+    def search
+
+        @products = Product.where("name like ?", "%#{params[:search_field]}%")
+
+        render partial 'shared/product', collection: @products
 
     end 
 

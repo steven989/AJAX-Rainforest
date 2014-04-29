@@ -4,6 +4,8 @@ RainforestAttempt2::Application.routes.draw do
 
   resources :products do
 
+    get "search", on: :collection
+    
     resources :reviews, only: [:create, :destroy, :edit, :update]
 
   end 
