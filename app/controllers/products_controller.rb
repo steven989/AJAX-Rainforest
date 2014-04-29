@@ -20,7 +20,11 @@ class ProductsController < ApplicationController
 
         @products = Product.where("name like ?", "%#{params[:search_field]}%")
 
-        render partial 'shared/product', collection: @products
+        puts '---------------------------------------------------'
+        puts params.inspect
+        puts '---------------------------------------------------'
+
+        render partial:'shared/product', collection: @products
 
     end 
 

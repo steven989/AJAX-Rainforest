@@ -8,3 +8,37 @@ Welcome back
     <%= text_field_tag 'search_field' %>
     <%= submit_tag 'Find product', id: 'search_submit' %>
 <% end %>
+
+
+
+<script type="text/javascript">
+
+    function showSearchResult() {
+
+        if (this.readyState == 4) {
+            $('#products_area').html(this.responseText)
+        } else {
+            alert("Uh oh something went wrong.")
+
+        }
+
+    }
+
+    
+    $(
+        $('#search_submit').on('click',function(event) {
+
+            event.preventDefault();
+            var searchValue = $('#search_field').val();
+
+            var xhr = new XMLHttpRequest();
+            xhr.onload = showSearchResult;
+            xhr.open('GET','/products/search?search_field='+searchValue,true);
+            xhr.send();
+
+        })
+
+    )
+
+
+</script>
