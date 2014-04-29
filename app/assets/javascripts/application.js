@@ -15,24 +15,24 @@
 //= require turbolinks
 //= require_tree .
     
-    $(
-        $('#search_submit').on('click',function(event) {
+    $(function(){
+            $('#search_submit').on('click',function(event) {
 
-            event.preventDefault();
-            var searchValue = $('#search_field').val();
+                event.preventDefault();
+                var searchValue = $('#search_field').val();
 
-            // $.ajax({
+                $.ajax({
 
-            //     url: 'products/search?search='+searchValue,
-            //     type: 'GET',
-            //     dataType: 'html'
+                    url: 'products/search?search_field='+searchValue,
+                    type: 'GET',
+                    dataType: 'html'
 
-            // }).done(function(data){
+                }).done(function(data){
 
-            //     $('#products_area').html(this.data)
+                    $('#products_area').html(data)
 
-            // })
+                })
 
-        })
-
+            })
+        }
     )

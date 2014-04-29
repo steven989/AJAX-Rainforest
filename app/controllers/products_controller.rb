@@ -23,6 +23,8 @@ class ProductsController < ApplicationController
         puts '---------------------------------------------------'
         puts params.inspect
         puts '---------------------------------------------------'
+        puts @products.inspect
+        puts '---------------------------------------------------'
 
         render partial:'shared/product', collection: @products
 
