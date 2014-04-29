@@ -1,0 +1,17 @@
+<p>Welcome back <%= Userinfo.find_by(user_id: session[:user_id]).first_name.capitalize %>! <%= link_to "Log out", session_path('current'), method: 'delete' %></p>
+
+<p><%= link_to "Back", products_path%></p>
+
+<h1>Add your product below:</h1>
+
+<% if @errors %>
+
+    <% @errors.each do |error| %>
+
+        <b><p><%= error.join(" ") %></p></b>
+
+    <% end %>    
+
+<% end %>
+
+<%= render 'shared/product_info' %>

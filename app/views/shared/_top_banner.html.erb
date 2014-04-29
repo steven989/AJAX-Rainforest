@@ -1,0 +1,1 @@
+Welcome back <%= Userinfo.find_by(user_id: session[:user_id]).first_name.capitalize %>! <%= link_to "Log out", session_path('current'), method: 'delete' %> <%= link_to "Delete my account", user_path(session[:user_id]), method:'delete' %> <%= link_to "Add a product", new_product_path %> <%= link_to "My profile", user_path(session[:user_id]) %>

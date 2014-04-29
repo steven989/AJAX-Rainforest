@@ -1,0 +1,21 @@
+<% if @authenticated %>
+<%= render 'shared/top_banner' %>
+<% end %>
+
+<p><%= link_to "Back", product_path(@product) %></p>
+
+<h1>Update your review below:</h1>
+
+    <%= form_for [@product, @review] do |f| %>
+
+        <p><%= f.label 'title', 'Title' %></p>
+        <p><%= f.text_field 'title' %></p>
+
+        <p><%= f.label 'content', 'Review' %></p>
+        <p><%= f.text_area 'content' %></p>
+
+        <p><%= f.hidden_field 'user_id', value: @user %></p>
+
+        <p><%= f.submit 'Swubmit review' %></p>
+
+    <% end %>

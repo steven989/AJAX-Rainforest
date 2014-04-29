@@ -1,0 +1,12 @@
+<%= render 'shared/top_banner' %>
+<p><%= link_to "Back", products_path %></p>
+<h1>Here are your information:</h1>
+<p>Email: <%= @user.user_name %></p>
+<p>First name: <%= @user_info.first_name %></p>
+<p>Last name: <%= @user_info.last_name %></p>
+<p>You have <%= @count_products %> products currently in the marketplace</p>
+<p>You have submitted <%= @count_reviews %> reviews</p>
+
+<h2>Here are the products you have submitted:</h2>
+
+<%= render "shared/show_products" %>

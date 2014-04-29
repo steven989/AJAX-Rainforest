@@ -1,0 +1,22 @@
+
+<% if @authenticated %>
+
+    <% if flash[:notice] %>
+
+        <p><%= flash[:notice] %> <%= link_to "Log out", session_path('current'), method: 'delete' %> <%= link_to "Delete my account", user_path(session[:user_id]), method:'delete' %> <%= link_to "See my products" %> <%= link_to "Add a product", new_product_path %></p>
+
+    <% else %>
+
+    <p><%= render "shared/top_banner" %></p>
+
+    <% end %>
+
+<% else %>
+
+<p><%= link_to "Sign up", new_user_path %> or <%= link_to "Log in", new_session_path %> </p>
+
+<% end %>
+
+<h1>Here are all products:</h1>
+
+<%= render "shared/show_products" %>

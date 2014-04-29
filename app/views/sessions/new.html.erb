@@ -1,0 +1,16 @@
+
+<p><%= link_to "Back", products_path %></p>
+
+<%= form_tag sessions_path do %>
+
+    <p><%= label_tag 'user_name', 'Email' %></p>
+    <p><%= text_field_tag 'user_name' %></p>
+
+    <p><%= label_tag 'password', 'Password' %></p>
+    <p><%= password_field_tag 'password' %></p>
+
+    <%= hidden_field_tag 'redirect_source', @redirect_source %>
+
+    <p><%= submit_tag %></p>
+
+<% end %>

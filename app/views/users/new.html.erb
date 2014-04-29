@@ -1,0 +1,40 @@
+
+<% if @errors %>
+
+<% @errors.each do |error| %>
+
+    <b><p><%= error.join(" ") %></p></b>
+
+<% end %>
+
+<% end %>
+
+
+<%= form_for @user do |f| %>
+
+    <p><%= f.label 'user_name', 'Email' %></p>
+    <p><%= f.text_field 'user_name' %></p>
+
+    <p><%= f.label 'password', 'Password' %></p>
+    <p><%= f.password_field 'password' %></p>
+
+    <p><%= f.label 'password_confirmation', 'Password Confirmation' %></p>
+    <p><%= f.password_field 'password_confirmation' %></p>
+
+    <%= fields_for Userinfo.new do |f| %>
+
+        <p><%= f.label 'first_name', 'First Name' %></p>
+        <p><%= f.text_field 'first_name' %></p>
+
+        <p><%= f.label 'last_name', 'Last Name' %></p>
+        <p><%= f.text_field 'last_name' %></p>
+
+        <%= f.hidden_field 'active_status', value:1 %>
+
+    <% end %>
+
+    <p><%= f.submit %></p>
+
+<% end %>
+
+<p><%= link_to "Back", products_path %></p>

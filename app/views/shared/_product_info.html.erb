@@ -1,0 +1,23 @@
+<%= form_for @product do |f| %>
+
+    <p><%= f.label 'name', "Product name" %></p>
+    <p><%= f.text_field 'name' %></p>
+
+    <p><%= f.label 'category', "Category" %></p>
+    <p><%= f.text_field 'category' %></p>
+
+    <p><%= f.label 'price', "Unit Price" %></p>
+    <p><%= f.text_field 'price' %></p>
+
+
+    <p><%= f.label 'description', "Product description" %></p>
+    <p><%= f.text_area 'description' %></p>
+
+    <p><%= f.label 'image_url', "Image URL" %></p>
+    <p><%= f.text_field 'image_url' %></p>
+
+    <%= f.hidden_field 'user_id', value:session[:user_id] %>
+
+    <p><%= f.submit %></p>
+
+<% end %>
