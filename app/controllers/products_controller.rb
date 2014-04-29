@@ -14,6 +14,8 @@ class ProductsController < ApplicationController
 
         end 
 
+        return render partial:'shared/product', collection: @products if request.xhr?
+
     end 
 
     def search

@@ -23,7 +23,7 @@
 
                 $.ajax({
 
-                    url: 'products/search?search_field='+searchValue,
+                    url: 'products?search_field='+searchValue,
                     type: 'GET',
                     dataType: 'html'
 
