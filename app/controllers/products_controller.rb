@@ -4,16 +4,19 @@ class ProductsController < ApplicationController
 
     def index
 
+
         if params[:search_field]
 
-        @products = Product.where("name like ?", "%#{params[:search_field]}%")
+        @products = Product.where("name like ?", "%#{params[:search_field]}%").page(params[:page])
 
         else 
 
+        puts '---------------------------------------------------'
+        puts params[:page]
+        puts '---------------------------------------------------'
         @products = Product.page(params[:page])
 
         end 
-
 
 
         if request.xhr?

@@ -25,4 +25,21 @@
 
                 })
 
+            $(window).on('scroll',function(){
+
+                var threshold = $(document).height() - $(window).height() - 50
+
+                var action = $(window).scrollTop() - threshold
+
+                if (action > 0 && $(".pagination .next a").attr('href')) {
+
+                    $.getScript($(".pagination .next a").attr('href'))
+                    $(".pagination").html("Next page is loading")
+
+                 }
+
+
+                })
+
             })
+
