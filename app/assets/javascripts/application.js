@@ -16,6 +16,7 @@
 //= require_tree .
     
     $(function(){
+        
             $('#search_submit').on('click',function(event) {
 
                 event.preventDefault();
