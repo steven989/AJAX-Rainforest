@@ -10,9 +10,11 @@ class ProductsController < ApplicationController
 
         else 
 
-        @products = Product.all
+        @products = Product.page(params[:page])
 
         end 
+
+
 
         if request.xhr?
 
