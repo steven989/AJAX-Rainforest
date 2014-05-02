@@ -8,12 +8,16 @@ class ReviewsController < ApplicationController
 
         if @product.reviews.new(review_params).save
             
+            @reviews = @product.reviews
+
             respond_to do |format|
                 format.html
                 format.js
             end
         else
+            
             render 'products/show'
+            
         end
 
     end 

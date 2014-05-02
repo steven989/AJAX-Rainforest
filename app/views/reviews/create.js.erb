@@ -1,1 +1,3 @@
-$('.show_reviews').html("<%= j(render partial: 'shared/show_review') %>");
+$('.show_reviews').html("<%= j(render partial: 'shared/review', collection: @reviews) %>");
+$('.new_review').find('#review_title').val('')
+$('.new_review').find('#review_content').val('')

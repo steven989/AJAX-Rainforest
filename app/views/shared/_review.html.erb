@@ -1,7 +1,4 @@
 
-<% @product.reviews.order(:created_at => :desc).each do |review| %>
-
-
     <h3><%= review.title %></h3>
     <p><%= review.content %></p>
     <p>Submitted by <%= review.user.userinfo.first_name + " " + review.user.userinfo.last_name %> on <%= review.created_at %></p>
@@ -15,5 +12,3 @@
     <% end %>
 
 
-
-<% end %>

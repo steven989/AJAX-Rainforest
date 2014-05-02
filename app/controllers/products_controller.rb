@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
         @product = Product.find_by(id: params[:id])
 
         @reviews = @product.reviews.order(:created_at => :desc)
+        p @reviews
 
         @review = @product.reviews.new
 

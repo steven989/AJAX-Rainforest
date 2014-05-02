@@ -2,7 +2,7 @@ class Review < ActiveRecord::Base
     belongs_to :product
     belongs_to :user
 
-    validates :title, :present
-    validates :content, :present
+    validates :title, presence: true
+    validates :content, presence: true
 
 end
