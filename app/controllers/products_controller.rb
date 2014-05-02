@@ -4,15 +4,19 @@ class ProductsController < ApplicationController
 
     def index
 
+        @products = 
+
         if params[:search_field]
 
-        @products = Product.where("name like ?", "%#{params[:search_field]}%")
+            Product.where("name like ?", "%#{params[:search_field]}%")
 
         else 
 
-        @products = Product.all
+            Product.all
 
         end 
+
+        @products = @products.page(params[:page])#.order("created_at DESC")
 
         if request.xhr?
 

@@ -6,9 +6,15 @@ class ReviewsController < ApplicationController
 
         @product = Product.find_by(id: params[:product_id])
 
-        @product.reviews.new(review_params).save
-
-        redirect_to product_path(@product)
+        if @product.reviews.new(review_params).save
+            
+            respond_to do |format|
+                format.html
+                format.js
+            end
+        else
+            render 'products/show'
+        end
 
     end 
 

@@ -1,2 +1,12 @@
 
+<% if params[:search_field] %>
+
 $('#products_area').html("<%= j(render partial: 'shared/product', collection: @products) %>")
+
+<% else %>
+
+$('#products_area').append("<%= j(render partial: 'shared/product', collection: @products) %>")
+$(".pagination").html("<%= j(paginate @products) %>")
+
+<% end %>
+
