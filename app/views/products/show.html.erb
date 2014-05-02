@@ -27,30 +27,17 @@
         <% end %>
     <% end %>
 
-<% @reviews.each do |review| %>
+<div class="show_reviews">
 
+<%= render partial: "shared/show_review" %>
 
-    <h3><%= review.title %></h3>
-    <p><%= review.content %></p>
-    <p>Submitted by <%= review.user.userinfo.first_name + " " + review.user.userinfo.last_name %> on <%= review.created_at %></p>
-
-    <% if @authenticated %>
-        <% if User.find_by(id:session[:user_id]).reviews.include?(review) %>
-
-            <p><%= link_to "Update", edit_product_review_path(@product,review) %> <%= link_to "Delete", product_review_path(@product,review), method:'delete' %></p>
-
-        <% end %>
-    <% end %>
- 
-
-
-<% end %>
+</div>
 
 <% if @authenticated %>
 
     <h2>Submit a review for this product:</h2>
 
-    <%= form_for [@product, @review] do |f| %>
+    <%= form_for [@product, @review], remote:true do |f| %>
 
         <p><%= f.label 'title', 'Title' %></p>
         <p><%= f.text_field 'title' %></p>

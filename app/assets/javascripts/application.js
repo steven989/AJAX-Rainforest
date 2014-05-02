@@ -14,33 +14,33 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-    
-    $(function(){
-        
-            $('#search_submit').on('click',function(event) {
 
-                event.preventDefault();
-                var searchValue = $('#search_field').val();
+$(function(){
 
-                $.getScript('/products?search_field='+searchValue)
+    $('#search_submit').on('click',function(event) {
 
-                })
+        event.preventDefault();
+        var searchValue = $('#search_field').val();
 
-            $(window).on('scroll',function(){
+        $.getScript('/products?search_field='+searchValue);
 
-                var threshold = $(document).height() - $(window).height() - 50
+    });
 
-                var action = $(window).scrollTop() - threshold
+    $(window).on('scroll',function(){
 
-                if (action > 0 && $(".pagination .next a").attr('href')) {
+        var threshold = $(document).height() - $(window).height() - 50;
 
-                    $.getScript($(".pagination .next a").attr('href'))
-                    $(".pagination").html("Next page is loading")
+        var action = $(window).scrollTop() - threshold;
 
-                 }
+        if (action > 0 && $(".pagination .next a").attr('href')) {
+
+            $.getScript($(".pagination .next a").attr('href'));
+            $(".pagination").html("Next page is loading");
+
+        }
 
 
-                })
+    });
 
-            })
+});
 

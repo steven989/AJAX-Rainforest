@@ -1,0 +1,19 @@
+
+<% @product.reviews.order(:created_at => :desc).each do |review| %>
+
+
+    <h3><%= review.title %></h3>
+    <p><%= review.content %></p>
+    <p>Submitted by <%= review.user.userinfo.first_name + " " + review.user.userinfo.last_name %> on <%= review.created_at %></p>
+
+    <% if @authenticated %>
+        <% if User.find_by(id:session[:user_id]).reviews.include?(review) %>
+
+            <p><%= link_to "Update", edit_product_review_path(@product,review) %> <%= link_to "Delete", product_review_path(@product,review), method:'delete' %></p>
+
+        <% end %>
+    <% end %>
+
+
+
+<% end %>

@@ -39,9 +39,10 @@ end
 # gem 'unicorn'
 
 gem 'kaminari'
+gem 'quiet_assets'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
